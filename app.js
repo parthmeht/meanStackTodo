@@ -16,7 +16,7 @@ mongoose.connect('mongodb://admin:admin@ds021356.mlab.com:21356/todoapp')
   .catch((err) => console.error(err));
 
 var todos = require('./routes/todos');
-
+var cool = require('./routes/cool');
 var app = express();
 
 // view engine setup
@@ -33,6 +33,7 @@ app.use('/static',express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/todos', todos);
+app.use('/cool', cool);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
