@@ -35,6 +35,14 @@ app.use('/', routes);
 app.use('/todos', todos);
 app.use('/cool', cool);
 
+app.get('/times', function(request, response) {
+    var result = ''
+    var times = process.env.TIMES || 5
+    for (i=0; i < times; i++)
+      result += i + ' ';
+  response.send(result);
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
